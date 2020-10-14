@@ -1,4 +1,6 @@
-.obj
-.class
-.idea
+*.obj
+*.class
+*.idea
 .iml
+.gitignore
+.git 
