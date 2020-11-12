@@ -5,21 +5,23 @@ import java.time.*;
 public class Course {
 
     private String name;
+    private String courseID;
     private ArrayList<Student> studentsRegistered;
     private ArrayList<Module> listOfModules;
     final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private LocalDate startDate;
     private LocalDate endDate;
 
-    public Course(String name, String startDate, String endDate){
+    public Course(String name, String courseID, String startDate, String endDate){
         this.name = name;
+        this.courseID = this.courseID;
         this.startDate = (LocalDate) dtf.parse(startDate);
         this.endDate = (LocalDate) dtf.parse(endDate);
     }
 
     public void enrollStudent(Student student){
         if(studentsRegistered.contains(student)) {
-            System.out.println("Already Enrolled in Course: " + name);
+            System.out.println("Already Enrolled in Course: " + courseID);
         } else {
             studentsRegistered.add(student);
             student.setCourses(this);
@@ -46,6 +48,15 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getCourseID() {
+        return courseID;
+    }
+
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
+    }
+
     public ArrayList<Student> getStudentsRegistered() {
         return studentsRegistered;
     }
