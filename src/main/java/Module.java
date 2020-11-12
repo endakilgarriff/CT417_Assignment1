@@ -4,21 +4,28 @@ public class Module {
 
     private String name;
     private ArrayList<Student> studentsRegistered;
-    private Course course;
+    private ArrayList<Course> associatedCourses = new ArrayList<>();
 
-    public Module(String name, ArrayList<Student> studentsRegistered, Course course) {
+    public Module(String name, ArrayList<Student> studentsRegistered) {
         this.name = name;
         this.studentsRegistered = studentsRegistered;
-        this.course = course;
     }
 
+    // Register Student for Module
     public void addStudents(Student student){
-        studentsRegistered.add(student);
+        if(studentsRegistered.contains(student)){
+            System.out.println("Already Registered for : " + name);
+        } else{
+            studentsRegistered.add(student);
+            student.setModules(this);
+        }
     }
 
     public void removeStudent(Student student) {
         studentsRegistered.remove(student);
+        student.removeModule(this);
     }
+
 
     // Getters and Setters
     public String getName() {
@@ -37,11 +44,11 @@ public class Module {
         this.studentsRegistered = studentsRegistered;
     }
 
-    public Course getCourse() {
-        return course;
+    public ArrayList<Course> getAssociatedCourses() {
+        return associatedCourses;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setAssociatedCourses(ArrayList<Course> associatedCourses) {
+        this.associatedCourses = associatedCourses;
     }
 }

@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.time.*;
@@ -11,8 +13,8 @@ public class Student {
     private long id;
     int numStudents = 0;
     private String userName;
-    private ArrayList<Course> courses = new ArrayList<Course>();
-    private ArrayList<Module> modules = new ArrayList<Module>();
+    private ArrayList<Course> courses = new ArrayList<>();
+    private ArrayList<Module> modules = new ArrayList<>();
 
     //Constructor
     public Student(String name, int age, String dob) {
@@ -25,7 +27,29 @@ public class Student {
     }
 
     // Create username from combination of student name and age
-    public String setUserName() { return name + Integer.toString(age); }
+    public String setUserName() { return name + age; }
+
+    // Add course
+    public void setCourses(Course course) {
+        if (this.courses.contains(course)) {
+            System.out.println("Already Enrolled");
+        } else {
+            this.courses.add(course);
+            // Add mandatory course modules
+            this.modules.addAll(course.getListOfModules());
+
+        }
+    }
+
+    // Add selected modules
+    public void setModules(Module module) {
+
+        if(this.modules.contains(module)){
+            System.out.println("Already Listed");
+        } else{
+            this.modules.add(module);
+        }
+    }
 
     // Accessors
     public String getName() {
@@ -59,10 +83,24 @@ public class Student {
 
     public void updateUserName(String userName) { this.userName = userName; }
 
-    public void setCourses(ArrayList<Course> courses) { this.courses = courses; }
+    public void removeCourse(Course course){
+        if (!this.courses.contains(course)) {
+            System.out.println("Not Enrolled");
+        } else {
+            this.courses.remove(course);
+            // Add mandatory course modules
+            this.modules.removeAll(course.getListOfModules());
 
-    public void setModules(ArrayList<Module> modules) { this.modules = modules; }
+        }
+    }
+
+    public void removeModule(Module module) {
+
+        if(!this.modules.contains(module)){
+            System.out.println("Not Listed");
+        } else{
+            this.modules.remove(module);
+        }
+    }
 
 }
-
-
