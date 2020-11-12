@@ -1,11 +1,14 @@
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.time.*
 
 public class Student {
 
     private String name;
     private int age;
-    private String dob;
-    private long id ;
+    final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+    private LocalDate dob;
+    private long id;
     int numStudents = 0;
     private String userName;
     private ArrayList<Course> courses = new ArrayList<Course>();
@@ -15,74 +18,51 @@ public class Student {
     public Student(String name, int age, String dob) {
         this.name = name;
         this.age = age;
-        this.dob = dob;
+        this.dob = (LocalDate) dtf.parse(dob);
         numStudents++;
         this.id = numStudents;
-        this.userName = getUserName();
+        this.userName = setUserName();
     }
 
-    private String getUserName(){
-        return name + Integer.toString(age);
-    }
+    // Create username from combination of student name and age
+    public String setUserName() { return name + Integer.toString(age); }
 
-    // Getters and Setters
+    // Accessors
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public int getAge() { return age; }
 
-    public int getAge() {
-        return age;
-    }
+    public LocalDate getDob() { return dob; }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+    public long getId() { return id; }
 
-    public String getDob() {
-        return dob;
-    }
+    public int getNumStudents() { return numStudents; }
 
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
+    public String getUserName() { return userName; }
 
-    public long getId() {
-        return id;
-    }
+    public ArrayList<Course> getCourses() { return courses; }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public ArrayList<Module> getModules() { return modules; }
 
-    public int getNumStudents() {
-        return numStudents;
-    }
+    // Mutators
+    public void setName(String name) { this.name = name; }
 
-    public void setNumStudents(int numStudents) {
-        this.numStudents = numStudents;
-    }
+    public void setAge(int age) { this.age = age; }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    public void setDob(LocalDate dob) { this.dob = dob; }
 
-    public ArrayList<Course> getCourses() {
-        return courses;
-    }
+    public void setId(long id) { this.id = id; }
 
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
-    }
+    public void setNumStudents(int numStudents) { this.numStudents = numStudents; }
 
-    public ArrayList<Module> getModules() {
-        return modules;
-    }
+    public void updateUserName(String userName) { this.userName = userName; }
 
-    public void setModules(ArrayList<Module> modules) {
-        this.modules = modules;
-    }
+    public void setCourses(ArrayList<Course> courses) { this.courses = courses; }
+
+    public void setModules(ArrayList<Module> modules) { this.modules = modules; }
+
 }
+
+
