@@ -1,8 +1,7 @@
 import org.junit.*;
 import static org.junit.Assert.assertEquals;
 
-
-public class Testcases {
+public class TestStudent {
 
     @Test
     public void testStudentCreation(){
@@ -10,5 +9,4 @@ public class Testcases {
         Student s1 = new Student(name, 21, "02/05/1999");
         assertEquals(name, s1.getName());
     }
-
 }
