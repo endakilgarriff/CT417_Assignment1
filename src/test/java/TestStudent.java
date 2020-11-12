@@ -1,7 +1,6 @@
 import org.junit.*;
 import static org.junit.Assert.assertEquals;
 import java.time.*;
-import java.util.Date;
 
 public class TestStudent {
     private final String name = "Enda Kilgarriff";
@@ -22,7 +21,19 @@ public class TestStudent {
     @Test
     public void testGetDob() {
         LocalDate testDob = LocalDate.of(1999,5, 1);
-        System.out.println(s1.getDob());
-        //assertEquals(s1.getDob(), testDob);
+        assertEquals(s1.getDob(), testDob);
+    }
+
+    @Test
+    public void testGetID(){
+        // Only one student created. S1 ID must be 1
+        assertEquals(s1.getId(), 1);
+    }
+
+    @Test
+    public void testUpdateUserName(){
+        String newUsername = "EndaKilgarriff21";
+        s1.updateUserName(newUsername);
+        assertEquals(s1.getUserName(), newUsername);
     }
 }
