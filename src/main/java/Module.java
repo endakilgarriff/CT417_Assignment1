@@ -15,10 +15,10 @@ public class Module {
     }
 
     // Register Student for Module
-    public void addStudents(Student student){
-        if(studentsRegistered.contains(student)){
+    public void addStudents(Student student) {
+        if (studentsRegistered.contains(student)) {
             System.out.println("Already Registered for : " + name);
-        } else{
+        } else {
             studentsRegistered.add(student);
             student.setModules(this);
         }
@@ -31,9 +31,13 @@ public class Module {
 
 
     // Getters and Setters
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getModuleID() {
         return moduleID;
@@ -43,7 +47,9 @@ public class Module {
         this.moduleID = moduleID;
     }
 
-    public ArrayList<Student> studentsRegistered() { return studentsRegistered; }
+    public ArrayList<Student> studentsRegistered() {
+        return studentsRegistered;
+    }
 
     public ArrayList<Course> getAssociatedCourses() {
         return associatedCourses;

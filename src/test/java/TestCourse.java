@@ -1,6 +1,4 @@
 import jdk.jfr.Description;
-import jdk.jfr.SettingDefinition;
-import org.junit.*;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -23,7 +21,7 @@ public class TestCourse {
 
     @Test
     @Description("Add default course modules")
-    public void testAddCourseModules(){
+    public void testAddCourseModules() {
         c1.addModuleToCourse(m1);
         c1.addModuleToCourse(m2);
         c1.addModuleToCourse(m4);
@@ -33,16 +31,16 @@ public class TestCourse {
         expectedModules.add(m2);
         expectedModules.add(m4);
 
-        assert(c1.getListOfModules().equals(expectedModules) );
+        assert (c1.getListOfModules().equals(expectedModules));
     }
 
     @Test
     @Description("Enroll Students")
-    public void testEnrollStudent(){
+    public void testEnrollStudent() {
         c1.enrollStudent(s1);
         c1.enrollStudent(s2);
-        String[] expectedNames = {"Enda Kilgarriff","Eoghan Muldoon"};
-        for(int i = 0; i <c1.getStudentsRegistered().size(); i++){
+        String[] expectedNames = {"Enda Kilgarriff", "Eoghan Muldoon"};
+        for (int i = 0; i < c1.getStudentsRegistered().size(); i++) {
             assertEquals(c1.getStudentsRegistered().get(i).getName(), expectedNames[i]);
         }
 
@@ -50,21 +48,21 @@ public class TestCourse {
 
     @Test
     @Description("Remove student from Course")
-    public void testRemoveStudent(){
+    public void testRemoveStudent() {
         c1.enrollStudent(s1);
         c1.enrollStudent(s2);
         c1.enrollStudent(s3);
         c1.removeStudent(s2);
 
         String[] expectedStudentNames = {s1.getName(), s3.getName()};
-        for(int i = 0; i < c1.getStudentsRegistered().size(); i++){
+        for (int i = 0; i < c1.getStudentsRegistered().size(); i++) {
             assertEquals(c1.getStudentsRegistered().get(i).getName(), expectedStudentNames[i]);
         }
     }
 
     @Test
     @Description("Remove a course module")
-    public void testRemoveModule(){
+    public void testRemoveModule() {
         c1.addModuleToCourse(m1);
         c1.addModuleToCourse(m2);
         c1.addModuleToCourse(m3);
@@ -76,12 +74,12 @@ public class TestCourse {
         expectedModules.add(m2);
         expectedModules.add(m4);
 
-        assert(c1.getListOfModules().equals(expectedModules) );
+        assert (c1.getListOfModules().equals(expectedModules));
     }
 
     @Test
     @Description("Get Course Start Date")
-    public void testGetStartDate(){
+    public void testGetStartDate() {
 
         LocalDate startDate = LocalDate.parse("28/08/2020", DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         assertEquals(c1.getStartDate(), startDate);
@@ -89,9 +87,9 @@ public class TestCourse {
 
     @Test
     @Description("Change course end date")
-    public void testChangeDate(){
-        LocalDate newEndDate = LocalDate.of(2021,05,30);
+    public void testChangeDate() {
+        LocalDate newEndDate = LocalDate.of(2021, 05, 30);
         c1.setEndDate(newEndDate);
-        assertEquals(c1.getEndDate(),newEndDate);
+        assertEquals(c1.getEndDate(), newEndDate);
     }
 }

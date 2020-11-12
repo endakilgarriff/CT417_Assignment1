@@ -1,6 +1,6 @@
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.time.*;
 
 public class Course {
 
@@ -13,16 +13,16 @@ public class Course {
     private LocalDate endDate;
 
     //Constructor
-    public Course(String name, String courseID, String startDate, String endDate){
+    public Course(String name, String courseID, String startDate, String endDate) {
         this.name = name;
         this.courseID = this.courseID;
-        this.startDate = LocalDate.parse(startDate,dtf);
-        this.endDate = LocalDate.parse(endDate,dtf);
+        this.startDate = LocalDate.parse(startDate, dtf);
+        this.endDate = LocalDate.parse(endDate, dtf);
     }
 
     // Enrolls Student in course - updating lists
-    public void enrollStudent(Student student){
-        if(studentsRegistered.contains(student)) {
+    public void enrollStudent(Student student) {
+        if (studentsRegistered.contains(student)) {
             System.out.println("Already Enrolled in Course: " + courseID);
         } else {
             studentsRegistered.add(student);
@@ -30,18 +30,18 @@ public class Course {
         }
     }
 
-    public void removeStudent(Student student){
+    public void removeStudent(Student student) {
         studentsRegistered.remove(student);
         student.removeCourse(this);
     }
 
     // Adds module to course
-    public void addModuleToCourse(Module module){
+    public void addModuleToCourse(Module module) {
         listOfModules.add(module);
         module.setAssociatedCourses(this);
     }
 
-    public void removeModuleFromCourse(Module module){
+    public void removeModuleFromCourse(Module module) {
         listOfModules.remove(module);
     }
 
@@ -69,6 +69,7 @@ public class Course {
     public void setStudentsRegistered(ArrayList<Student> studentsRegistered) {
         this.studentsRegistered = studentsRegistered;
     }
+
     public ArrayList<Module> getListOfModules() {
         return listOfModules;
     }

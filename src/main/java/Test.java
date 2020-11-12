@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Test {
     public static void main(String[] args) {
         Student s1 = new Student("Enda Kilgarriff", 21, "05/01/1999");
