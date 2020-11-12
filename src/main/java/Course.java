@@ -7,11 +7,12 @@ public class Course {
     private String name;
     private String courseID;
     private ArrayList<Student> studentsRegistered = new ArrayList<>();
-    private ArrayList<Module> listOfModules = new ArrayList<>();
+    private final ArrayList<Module> listOfModules = new ArrayList<>();
     final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private LocalDate startDate;
     private LocalDate endDate;
 
+    //Constructor
     public Course(String name, String courseID, String startDate, String endDate){
         this.name = name;
         this.courseID = this.courseID;
@@ -19,6 +20,7 @@ public class Course {
         this.endDate = LocalDate.parse(endDate,dtf);
     }
 
+    // Enrolls Student in course - updating lists
     public void enrollStudent(Student student){
         if(studentsRegistered.contains(student)) {
             System.out.println("Already Enrolled in Course: " + courseID);
@@ -33,6 +35,7 @@ public class Course {
         student.removeCourse(this);
     }
 
+    // Adds module to course
     public void addModuleToCourse(Module module){
         listOfModules.add(module);
         module.setAssociatedCourses(this);
@@ -46,6 +49,7 @@ public class Course {
     public String getCourseName() {
         return name;
     }
+
     public void setCourseName(String name) {
         this.name = name;
     }
@@ -61,25 +65,26 @@ public class Course {
     public ArrayList<Student> getStudentsRegistered() {
         return studentsRegistered;
     }
+
     public void setStudentsRegistered(ArrayList<Student> studentsRegistered) {
         this.studentsRegistered = studentsRegistered;
     }
     public ArrayList<Module> getListOfModules() {
         return listOfModules;
     }
-    public void setListOfModules(ArrayList<Module> listOfModules) {
-        this.listOfModules = listOfModules;
-    }
 
     public LocalDate getStartDate() {
         return startDate;
     }
+
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
+
     public LocalDate getEndDate() {
         return endDate;
     }
+
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }

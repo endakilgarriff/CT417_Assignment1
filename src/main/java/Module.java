@@ -4,9 +4,10 @@ public class Module {
 
     private String name;
     private String moduleID;
-    private ArrayList<Student> studentsRegistered = new ArrayList<>();
-    private ArrayList<Course> associatedCourses = new ArrayList<>();
+    private final ArrayList<Student> studentsRegistered = new ArrayList<>();
+    private final ArrayList<Course> associatedCourses = new ArrayList<>();
 
+    //Constructor
     public Module(String name, String moduleID) {
         this.name = name;
         this.moduleID = moduleID;
@@ -30,13 +31,9 @@ public class Module {
 
 
     // Getters and Setters
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
     public String getModuleID() {
         return moduleID;
@@ -46,13 +43,7 @@ public class Module {
         this.moduleID = moduleID;
     }
 
-    public ArrayList<Student> studentsRegistered() {
-        return studentsRegistered;
-    }
-
-    public void setStudents(ArrayList<Student> studentsRegistered) {
-        this.studentsRegistered = studentsRegistered;
-    }
+    public ArrayList<Student> studentsRegistered() { return studentsRegistered; }
 
     public ArrayList<Course> getAssociatedCourses() {
         return associatedCourses;

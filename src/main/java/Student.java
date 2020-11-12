@@ -13,8 +13,8 @@ public class Student {
     private long id;
     int numStudents = 0;
     private String userName;
-    private ArrayList<Course> courses = new ArrayList<>();
-    private ArrayList<Module> modules = new ArrayList<>();
+    private final ArrayList<Course> courses = new ArrayList<>();
+    private final ArrayList<Module> modules = new ArrayList<>();
 
     //Constructor
     public Student(String name, int age, String dob) {
@@ -51,10 +51,30 @@ public class Student {
         }
     }
 
-    // Accessors
-    public String getName() {
-        return name;
+    // Unregister Student from course - Updating lists
+    public void removeCourse(Course course){
+        if (!this.courses.contains(course)) {
+            System.out.println("Not Enrolled");
+        } else {
+            this.courses.remove(course);
+            // Add mandatory course modules
+            this.modules.removeAll(course.getListOfModules());
+
+        }
     }
+
+    // Removes module from students list and from modules list
+    public void removeModule(Module module) {
+
+        if(!this.modules.contains(module)){
+            System.out.println("Not Listed");
+        } else{
+            this.modules.remove(module);
+        }
+    }
+
+    // Accessors
+    public String getName() { return name; }
 
     public int getAge() { return age; }
 
@@ -83,24 +103,6 @@ public class Student {
 
     public void updateUserName(String userName) { this.userName = userName; }
 
-    public void removeCourse(Course course){
-        if (!this.courses.contains(course)) {
-            System.out.println("Not Enrolled");
-        } else {
-            this.courses.remove(course);
-            // Add mandatory course modules
-            this.modules.removeAll(course.getListOfModules());
 
-        }
-    }
-
-    public void removeModule(Module module) {
-
-        if(!this.modules.contains(module)){
-            System.out.println("Not Listed");
-        } else{
-            this.modules.remove(module);
-        }
-    }
 
 }
