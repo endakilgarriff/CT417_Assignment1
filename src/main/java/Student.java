@@ -1,12 +1,12 @@
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.time.*
+import java.time.*;
 
 public class Student {
 
     private String name;
     private int age;
-    final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+    final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private LocalDate dob;
     private long id;
     int numStudents = 0;
@@ -18,7 +18,7 @@ public class Student {
     public Student(String name, int age, String dob) {
         this.name = name;
         this.age = age;
-        this.dob = (LocalDate) dtf.parse(dob);
+        this.dob = LocalDate.parse(dob,dtf);
         numStudents++;
         this.id = numStudents;
         this.userName = setUserName();
