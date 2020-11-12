@@ -4,7 +4,7 @@ public class Module {
 
     private String name;
     private String moduleID;
-    private ArrayList<Student> studentsRegistered;
+    private ArrayList<Student> studentsRegistered = new ArrayList<>();
     private ArrayList<Course> associatedCourses = new ArrayList<>();
 
     public Module(String name, String moduleID) {
@@ -58,7 +58,7 @@ public class Module {
         return associatedCourses;
     }
 
-    public void setAssociatedCourses(ArrayList<Course> associatedCourses) {
-        this.associatedCourses = associatedCourses;
+    public void setAssociatedCourses(Course course) {
+        associatedCourses.add(course);
     }
 }

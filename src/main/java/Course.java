@@ -6,8 +6,8 @@ public class Course {
 
     private String name;
     private String courseID;
-    private ArrayList<Student> studentsRegistered;
-    private ArrayList<Module> listOfModules;
+    private ArrayList<Student> studentsRegistered = new ArrayList<>();
+    private ArrayList<Module> listOfModules = new ArrayList<>();
     final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private LocalDate startDate;
     private LocalDate endDate;
@@ -15,8 +15,8 @@ public class Course {
     public Course(String name, String courseID, String startDate, String endDate){
         this.name = name;
         this.courseID = this.courseID;
-        this.startDate = (LocalDate) dtf.parse(startDate);
-        this.endDate = (LocalDate) dtf.parse(endDate);
+        this.startDate = LocalDate.parse(startDate,dtf);
+        this.endDate = LocalDate.parse(endDate,dtf);
     }
 
     public void enrollStudent(Student student){
@@ -35,6 +35,7 @@ public class Course {
 
     public void addModuleToCourse(Module module){
         listOfModules.add(module);
+        module.setAssociatedCourses(this);
     }
 
     public void removeModuleFromCourse(Module module){
@@ -42,10 +43,10 @@ public class Course {
     }
 
     //Getters and Setters
-    public String getName() {
+    public String getCourseName() {
         return name;
     }
-    public void setName(String name) {
+    public void setCourseName(String name) {
         this.name = name;
     }
 
