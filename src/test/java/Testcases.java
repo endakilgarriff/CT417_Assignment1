@@ -11,5 +11,4 @@ public class Testcases {
         assertEquals(name, s1.getName());
     }
 
-
 }
