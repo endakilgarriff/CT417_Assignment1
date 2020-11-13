@@ -15,7 +15,7 @@ public class Course {
     //Constructor
     public Course(String name, String courseID, String startDate, String endDate) {
         this.name = name;
-        this.courseID = this.courseID;
+        this.courseID = courseID;
         this.startDate = LocalDate.parse(startDate, dtf);
         this.endDate = LocalDate.parse(endDate, dtf);
     }
