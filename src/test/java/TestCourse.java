@@ -92,4 +92,10 @@ public class TestCourse {
         c1.setEndDate(newEndDate);
         assertEquals(c1.getEndDate(), newEndDate);
     }
+
+    @Test
+    @Description("Test Get courseID")
+    public void testGetCourseID(){
+        assertEquals(c1.getCourseID(), "BP");
+    }
 }
