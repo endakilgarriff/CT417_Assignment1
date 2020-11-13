@@ -67,4 +67,11 @@ public class TestModule {
         assertEquals(m2.getName(), "System On Chip 1");
     }
 
+    @Test
+    @Description("Student Already Regitered")
+    public void testStudentRegistered(){
+        m4.addStudents(s2);
+        assert(m4.studentsRegistered().contains(s2));
+    }
+
 }

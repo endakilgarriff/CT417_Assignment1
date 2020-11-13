@@ -24,6 +24,7 @@ public class TestStudent {
     Module m4 = new Module("Software Engineering 3", "CT417");
 
     @Before
+    @Description("Setup")
     public void initialize() {
         c1.addModuleToCourse(m1);
         c1.addModuleToCourse(m2);
@@ -33,28 +34,33 @@ public class TestStudent {
     }
 
     @Test
+    @Description("Test Get name")
     public void testStudentCreation() {
         assertEquals(name, s1.getName());
     }
 
     @Test
+    @Description("Test get Username")
     public void testGetUsername() {
         assertEquals(s1.getUserName(), "Enda Kilgarriff21");
     }
 
     @Test
+    @Description("Test Get DOB")
     public void testGetDob() {
         LocalDate testDob = LocalDate.of(1999, 5, 1);
         assertEquals(s1.getDob(), testDob);
     }
 
     @Test
+    @Description("Test get ID")
     public void testGetID() {
         // Only one student created. S1 ID must be 1
         assertEquals(s1.getId(), 1);
     }
 
     @Test
+    @Description("Test Updating Username")
     public void testUpdateUserName() {
         String newUsername = "EndaKilgarriff21";
         s1.updateUserName(newUsername);
