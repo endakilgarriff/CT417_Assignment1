@@ -1,0 +1,17 @@
+# Language setting http://docs.shippable.com/ci/languages/node/
+language: java
+jdk: oraclejdk11
+
+# use this to control what branches get built.
+branches:
+  only:
+    - master
+    
+build:
+    ci:
+    #Create folders for test and code coverage
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+    - shippable_retry mvn install -DskipTests=true
+    - cp -r target shippable/codecoverage
+    

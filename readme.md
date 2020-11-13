@@ -2,9 +2,9 @@
 ## This assignment aims to reinforce understanding of some modern software development frameworks - specifically using Maven, Jitpack, JUnit, git and GitHub, and Shippable CI
 
 **There are 3 main parts:**
-- [ ] Part A - Create student registration system in Java and test using JUnit
-- [ ] Part B - A second Maven project adds the project release in part A as a dependency using Jitpack
-- [ ] Part C - Use Shippable CI to automate the build
+- [X] Part A - Create student registration system in Java and test using JUnit
+- [X] Part B - A second Maven project adds the project release in part A as a dependency using Jitpack
+- [X] Part C - Use Shippable CI to automate the build
 
 **The devliverables for this assignment are as follows:**
 - [ ] Links to your Github repositories which contain the source code for part a) and b).
